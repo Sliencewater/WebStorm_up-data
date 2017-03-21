@@ -4,39 +4,35 @@
 <head>
 <title>Simple Login Form</title>
 <meta charset="UTF-8" />
-<meta name="Designer" content="PremiumPixels.com">
-<meta name="Author" content="$hekh@r d-Ziner, CSSJUNTION.com">
-<link rel="stylesheet" type="text/css" href="../../../Downloads/Simple-Login-Form/css/reset.css">
-<link rel="stylesheet" type="text/css" href="../../../Downloads/Simple-Login-Form/css/structure.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/structure.css">
 </head>
-<script language="javascript" type="text/javascript">
-	document.getElementsByName("btnLogin") = function check(event){
-		var pw = document.getElementsByName("pw");
-		var pwagain = document.getElementsByName("pwagain");
-		alert(pw);
-       if(pw != pwagain) {
-        alert("两次密码不同，请重新输入");
-          if (event.preventDefault) {
-               event.preventDefault();
-           } else {
-               event.returnValue = false;
-           }
-        } else {
-           return true;
-        }
-	}
-</script>
+
 <body>
-<form class="box login" name="form1" id="form1" onsubmit="return check()"> 
+<form class="box login" name="form1" id="form1">
 	<fieldset class="boxBody">
 	  <label>注册</label>
-	  <input type="text" tabindex="1" placeholder="用户名包含6-16个字符，不包括特殊字符" required>
-	  <input type="password" name="pw" tabindex="2"placeholder="密码包含6-19个字符" required>
-	  <input type="password" name="pwagain"  tabindex="2" placeholder="重新输入密码">
+	  <input type="text" tabindex="1" placeholder="用户名包含6-16个字符，不包括特殊字符" />
+	  <input type="password" name="pw" id="password" tabindex="2" placeholder="密码包含6-19个字符" />
+	  <input type="password" name="pwagain" id="repassword" tabindex="2" placeholder="重新输入密码" >
 	</fieldset>
 	<footer>
-	  <input type="submit" class="btnLogin" value="确认注册" tabindex="4">
+        <button class="btnLogin" id="register"  style="width: 80px;height: 30px" onclick="pw()">注册</button>
 	</footer>
 </form>
+<script type="text/javascript">
+    function pw() {
+        alert("22");
+        var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
+
+        if(password!=repassword){
+            alert("您输入的新密码与确认密码确认不一致");
+            return false;
+
+        }
+        return true;
+    }
+</script>
 </body>
 </html>
